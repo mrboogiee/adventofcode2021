@@ -14,7 +14,7 @@ func main() {
 	depth := 0
 	for _, line := range lines {
 		fmt.Println(line)
-		var re = regexp.MustCompile("(\\w*) (\\d)")
+		var re = regexp.MustCompile("(\\w*) (\\d*)")
 		result := re.FindStringSubmatch(line)
 		action := result[1]
 		amount, _ := strconv.Atoi(result[2])
