@@ -21,13 +21,14 @@ func main() {
 	epsilonBinary := getEpsilonBinary(inputdigits)
 	epsilonDecimal, _ := strconv.ParseInt(epsilonBinary, 2, 64)
 	fmt.Printf("Epsilon Binary: %s Decimal: %d\n", epsilonBinary, epsilonDecimal)
+	fmt.Printf("Power: %d", epsilonDecimal*gammaDecimal)
 }
 
 func getGammaBinary(inputdigits map[int][]int) string {
 	var gammaBinary string
-	for _, digits := range inputdigits {
+	for i := 0; i < len(inputdigits); i++ {
 		var count1, count0 int
-		for _, digit := range digits {
+		for _, digit := range inputdigits[i] {
 			switch digit {
 			case 0:
 				count0++
@@ -50,9 +51,10 @@ func getGammaBinary(inputdigits map[int][]int) string {
 
 func getEpsilonBinary(inputdigits map[int][]int) string {
 	var epsilonBinary string
-	for _, digits := range inputdigits {
+
+	for i := 0; i < len(inputdigits); i++ {
 		var count1, count0 int
-		for _, digit := range digits {
+		for _, digit := range inputdigits[i] {
 			switch digit {
 			case 0:
 				count0++
